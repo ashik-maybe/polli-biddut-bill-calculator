@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="bn" id="htmlRoot">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>বিদ্যুৎ বিল ক্যালকুলেটর – BREB</title>
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+
+        <link rel="stylesheet" href="src/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- Theme Toggle -->
+            <div class="theme-toggle">
+                <button id="themeSwitch" class="theme-switch" aria-label="থিম টগল করুন">
+                    <span class="toggle-ball"></span>
+                </button>
+            </div>
+
+            <div class="header">
+                <i class="fas fa-bolt icon-main"></i>
+                <h1>বিদ্যুৎ বিল ক্যালকুলেটর</h1>
+                <p>বাংলাদেশ পল্লী বিদ্যুতায়ন বোর্ড (BREB)</p>
+            </div>
+
+            <form id="billForm" class="form">
+                <div class="input-group">
+                    <label for="voltage"><i class="fas fa-plug"></i> ভোল্টেজ লেভেল</label>
+                    <select id="voltage" required>
+                        <option value="LT">লো টেনশন (LT)</option>
+                        <option value="MT">মিডিয়াম টেনশন (MT)</option>
+                        <option value="HT">হাই টেনশন (HT)</option>
+                        <option value="EHT">এক্সট্রা হাই টেনশন (EHT)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="category"><i class="fas fa-user-tag"></i> গ্রাহক শ্রেণি</label>
+                    <select id="category" required>
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="consumption"
+                        ><i class="fas fa-battery-full"></i> ব্যবহার (kWh)</label
+                    >
+                    <input
+                        type="number"
+                        id="consumption"
+                        min="0"
+                        step="1"
+                        placeholder="যেমন: 250"
+                        inputmode="decimal"
+                        required
+                    />
+                </div>
+
+                <button type="submit" class="btn-calculate">
+                    <i class="fas fa-calculator"></i> বিল হিসাব করুন
+                </button>
+            </form>
+
+            <div id="result" class="result hidden"></div>
+
+            <!-- Attribution Footer -->
+            <div class="source-notice">
+                <p>
+                    <i class="fas fa-file-contract"></i>
+                    তথ্যসূত্র:
+                    <a
+                        href="https://reb.gov.bd/site/page/8976a19b-6e8e-4d4d-a96f-7ac4bc8c4160/%E0%A6%96%E0%A7%81%E0%A6%9C%E0%A6%B0%E0%A6%BE-%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A7%81%E0%A6%A4-%E0%A6%AE%E0%A7%82%E0%A6%B2%E0%A7%8D%E0%A6%AF%E0%A6%B9%E0%A6%BE%E0%A6%B0"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        “খুচরা বিদ্যুৎ মূল্যহার”
+                    </a>
+                    <br /><small>(প্রকাশিত: ২৯ ফেব্রুয়ারি, ২০২৪)</small>
+                </p>
+            </div>
+        </div>
+
+        <script src="src/main.js"></script>
+    </body>
+</html>
